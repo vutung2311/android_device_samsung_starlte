@@ -1,3 +1,5 @@
+DEVICE_TREE := device/samsung/starlte
+
 # Platform
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
@@ -24,12 +26,14 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CONFIG := exynos9810-starlte_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/universal9810
+# TARGET_KERNEL_SOURCE := kernel/samsung/universal9810
+TARGET_PREBUILT_RECOVERY_KERNEL := $(DEVICE_TREE)/Image
+TARGET_PREBUILT_KERNEL := $(DEVICE_TREE)/Image
+TARGET_PREBUILT_DT_IMAGE := $(DEVICE_TREE)/dtb.img
 
 # Image
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/starlte/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_TREE)/mkbootimg.mk
 BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --board SRPQH16A001RU
@@ -58,4 +62,4 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_FBE := true
 
 # Include
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/starlte/include
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_TREE)/include
