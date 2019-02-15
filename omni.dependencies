@@ -4,11 +4,5 @@
 		"repository":"TeamWin/android_kernel_samsung_universal9810",
 		"target_path":"kernel/samsung/universal9810",
 		"revision":"android-8.1"
-	},
-	{
-		"remote":"aosp",
-		"repository":"platform/external/dtc",
-		"target_path":"external/dtc",
-		"revision":"oreo-release"
 	}
 ]
